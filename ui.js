@@ -38,6 +38,7 @@ $(async function () {
     if (!errorsFound(userInstance)) {
       // set the global user to the user instance
       currentUser = userInstance;
+      await generateStories();
       syncCurrentUserToLocalStorage();
       loginAndSubmitForm();
     }
@@ -396,7 +397,7 @@ $(async function () {
         <span class="trash-can ${$ownStories.is(":hidden") && "hidden"}">
           <i class="fas fa-trash-alt"></i>
         </span>
-        <span class="star">
+        <span class="star ${!currentUser && "hidden"}">
           <i class="${favorite ? "fas" : "far"} fa-star" ></i >
         </span>
         <a class="article-link" href="${story.url}" target="a_blank">
