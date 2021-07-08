@@ -30,12 +30,9 @@ a:hover {
   text-decoration: underline;
 }
 
-
 .hidden {
   display: none;
 }
-
-
 
 nav {
   display: flex;
@@ -98,7 +95,8 @@ form input:focus {
   box-shadow: 0 0 4px 1px darkgray;
 }
 
-form > button {
+form > button,
+#edit-profile-button {
   width: 4rem;
   margin: 5px 0px 15px 65px;
   border: none;
@@ -194,6 +192,11 @@ form > hr {
   padding-left: 20px;
 }
 
+.no-favorites {
+  /* margin: 20px 5px;
+  padding-left: 20px; */
+}
+
 .account-forms-container {
   padding-left: 20px;
 }
@@ -211,6 +214,17 @@ form > hr {
   margin: 10px 0;
 }
 
+#errors {
+  background: #f8d7da;
+  color: #721c24;
+  display: block;
+  padding: 10px;
+  text-align: center;
+}
+
+#edit-profile-button {
+  margin: 15px 0;
+}
 
 /** responsive queries for tightening things up for mobile. */
 

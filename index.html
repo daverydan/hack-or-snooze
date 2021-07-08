@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hack or Snooze - Start</title>
+    <title>Hack or Snooze</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
@@ -16,11 +16,19 @@
 
   <body>
     <nav>
-      <b
-        ><a class="nav-link navbar-brand" href="#" id="nav-all"
+      <b>
+        <a class="nav-link navbar-brand" href="#" id="nav-all"
           >Hack or Snooze</a
-        ></b
-      >
+        >
+      </b>
+      <section class="main-nav-links hidden">
+        <span>|</span>
+        <a class="nav-link" href="#" id="nav-submit">submit</a>
+        <span>|</span>
+        <a class="nav-link" href="#" id="nav-favorites">favorites</a>
+        <span>|</span>
+        <a class="nav-link" href="#" id="nav-my-stories">my stories</a>
+      </section>
       <a class="nav-link nav-right" href="#" id="nav-login"
         >login/create user</a
       >
@@ -31,7 +39,36 @@
         <small>(logout)</small>
       </a>
     </nav>
+    <span id="errors" class="hidden"></span>
+    <section class="edit-article-container container">
+      <form action="#" id="edit-article-form" class="hidden" method="post">
+        <h4>Article Information</h4>
+        <input type="hidden" id="storyId" value="" />
+        <div class="edit-input">
+          <label for="author">Author</label>
+          <input id="author" required type="text" />
+        </div>
+        <div class="edit-input">
+          <label for="title">Title</label>
+          <input id="title" type="text" required />
+        </div>
+        <div class="edit-input">
+          <label for="url">URL</label>
+          <input id="url" type="text" />
+        </div>
+        <div class="form-buttons">
+          <button type="button" class="edit-cancel-button">cancel</button>
+          <button type="submit" class="change">change</button>
+        </div>
+        <hr />
+      </form>
+    </section>
     <section class="articles-container container">
+      <section>
+        <ul id="favorited-articles" class="hidden articles-list">
+          <h5>No favorites added!</h5>
+        </ul>
+      </section>
       <form action="" class="hidden" id="submit-form">
         <div>
           <label for="author">author</label>
@@ -60,18 +97,10 @@
         <ul id="filtered-articles" class="hidden articles-list"></ul>
       </article>
       <article>
-        <ul id="my-articles" class="hidden articles-list"></ul>
+        <ul id="my-articles" class="hidden articles-list">
+          <h5>No stories added by user yet!</h5>
+        </ul>
       </article>
-    </section>
-    <section class="edit-article-container container">
-      <form action="#" id="edit-article-form" class="hidden" method="post">
-        <h4>Article Information</h4>
-        <div class="edit-input">
-          <label for="edit-title">Title</label>
-          <input id="edit-title" type="text" />
-          <button type="submit">change</button>
-        </div>
-      </form>
     </section>
     <section class="account-forms-container container">
       <form
@@ -83,11 +112,11 @@
         <h4>Login</h4>
         <div class="login-input">
           <label for="login-username">username</label>
-          <input id="login-username" type="text" />
+          <input id="login-username" type="text" required />
         </div>
         <div class="login-input">
           <label for="login-password">password</label>
-          <input id="login-password" type="password" />
+          <input id="login-password" type="password" required />
         </div>
         <button type="submit">login</button>
         <hr />
@@ -115,12 +144,33 @@
       </form>
     </section>
     <section id="user-profile" class="container hidden">
-      <h4>User Profile Info</h4>
+      <h4 id="userProfileTitle">User Profile Info</h4>
       <section>
         <div id="profile-name">Name:</div>
         <div id="profile-username">Username:</div>
         <div id="profile-account-date">Account Created:</div>
+        <button type="button" id="edit-profile-button">Edit</button>
       </section>
+      <form
+        action="#"
+        id="edit-profile-form"
+        class="account-form hidden"
+        method="post"
+      >
+        <h4>Edit User Profile</h4>
+        <div class="login-input">
+          <label for="editName">Name</label>
+          <input id="editName" type="text" />
+        </div>
+        <div class="login-input">
+          <label for="editPassword">Password</label>
+          <input id="editPassword" type="password" />
+        </div>
+        <div>
+          <button type="button" class="edit-cancel-button">Cancel</button>
+          <button type="submit">Update</button>
+        </div>
+      </form>
     </section>
   </body>
   <script
